@@ -4,12 +4,13 @@
 // Engineer: 
 // 
 // Create Date: 05/19/2024 06:07:48 PM
-// Design Name: 
+// Design Name: 101 sequence detecter
 // Module Name: detecter
 // Project Name: 
-// Target Devices: 
+// Target Devices: Nexy A7-100T
 // Tool Versions: 
 // Description: 
+// repeatable detection of '101' sequence
 // 
 // Dependencies: 
 // 
