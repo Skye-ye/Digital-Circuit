@@ -28,14 +28,12 @@ module detecter(
     output reg [0:0] LED
     );
 
-    wire Q0, Q1;
-
-    initial LED = 1'b0;
+    wire Q0, Q1, QN1;
 
     flip_flop D0(
         .clk(BTNC),
         .reset(CPU_RESETN),
-        .D(~SW[0]),
+        .D(SW | (QN1 & Q0)),
         .Q(Q0),
         .QN()
     );
@@ -43,9 +41,9 @@ module detecter(
     flip_flop D1(
         .clk(BTNC),
         .reset(CPU_RESETN),
-        .D(Q0 & ~SW[0]),
+        .D(QN1 & Q0 & ~SW),
         .Q(Q1),
-        .QN()
+        .QN(QN1)
     );
 
     always @(posedge BTNC or negedge CPU_RESETN) begin
